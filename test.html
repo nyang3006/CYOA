@@ -3,6 +3,7 @@
 
   </head>
   <body>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
       const choices = {
         msg: "Welcome. Chose your options",
@@ -32,13 +33,12 @@
         }
       }
       var x = JSON.parse(JSON.stringify(choices));
-      let chose = ["a","b"];
+      let chose = [];
       for(let i in chose){
         console.log(x)
         x = x.options;
         x = x[chose[i]];
       }
-        console.log(x)
       document.write(x["msg"])
     </script>
   </body>  

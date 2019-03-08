@@ -1,11 +1,30 @@
-const choices = ["Welcome. Chose your options", [
-  "You chose A. Chose again",["Again. The end."],["The end."]
-],[
-  "you chose B. Chose again",["The end2"],["again b, the end."]
-]];
-
-let optionIndex = 0;
-let options = [];
+const choices = {
+  msg: "Welcome. Chose your options",
+  options:{
+    a:{
+      msg:"You chose A. Chose again",
+      options:{
+        a:{
+          msg:"Again. The end."
+        },
+        b:{
+          msg:"The end."
+        }
+      }
+    },
+    b:{
+      msg:"you chose B. Chose again",
+      options:{
+        a:{
+          msg:"aaThe end."
+        },
+        b:{
+          msg:"Again!, The end."
+        }
+      }
+    }
+  }
+}
 $(document).ready(()=>{
   const output = $("#output");
   var app = document.getElementById('output');
@@ -14,13 +33,16 @@ $(document).ready(()=>{
     loop: false,
     delay: 5
   });
-
+  
+  var x = JSON.parse(JSON.stringify(choices));
+  let chose = [];
   let typeStory = ()=>{
-    let a;
-    for(let i=0;i<=options.length;i++){
-      a=choices[i];
+    for(let i in chose){
+      console.log(x)
+      x = x.options;
+      x = x[chose[i]];
     }
-    return a;
+    return x.msg;
   }
 
   function isEqualIgnoreCase(a,b){
@@ -41,23 +63,15 @@ $(document).ready(()=>{
       if(canEnter){
         canEnter = false;
         $("#output .Typewriter__wrapper").first().append("<br>>"+$("#user").val()+"<br>");
-        optionIndex++;
-        console.log(optionIndex);
+        chose[chose.length]=$("#user").val().toLowerCase();
         $("#user").val("");
+        
         typewriter.typeString(typeStory())
           .pauseFor(1000)
           .callFunction(()=>{
             canEnter = true;
-
           })
           .start();
-        if(isEqualIgnoreCase($("#user").val(),"a")){
-          options[optionIndex]=1;
-          console.log("LA")
-        }else if(isEqualIgnoreCase($("#user").val(),"b")){
-          options[optionIndex]=2;
-          console.log("LAA")
-        }
       }
     }
   });
