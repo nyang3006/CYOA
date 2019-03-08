@@ -1,0 +1,45 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <script>
+      const choices = {
+        msg: "Welcome. Chose your options",
+        options:{
+          a:{
+            msg:"You chose A. Chose again",
+            options:{
+              a:{
+                msg:"Again. The end."
+              },
+              b:{
+                msg:"The end."
+              }
+            }
+          },
+          b:{
+            msg:"you chose B. Chose again",
+            options:{
+              a:{
+                msg:"aaThe end."
+              },
+              b:{
+                msg:"Again!, The end."
+              }
+            }
+          }
+        }
+      }
+      var x = JSON.parse(JSON.stringify(choices));
+      let chose = ["a","b"];
+      for(let i in chose){
+        console.log(x)
+        x = x.options;
+        x = x[chose[i]];
+      }
+        console.log(x)
+      document.write(x["msg"])
+    </script>
+  </body>  
+</html>

@@ -14,15 +14,15 @@ $(document).ready(()=>{
     loop: false,
     delay: 5
   });
+
   let typeStory = ()=>{
-    let stand = choices;
-    for(var i in options){
-      stand = choices[i];
-      console.log(choices[i]);
+    let a;
+    for(let i=0;i<=options.length;i++){
+      a=choices[i];
     }
-    console.log(stand)
-    return stand[0];
+    return a;
   }
+
   function isEqualIgnoreCase(a,b){
     return a.toLowerCase() == b.toLowerCase() ? false : true;
   }
@@ -34,6 +34,7 @@ $(document).ready(()=>{
 
     })
     .start();
+
   $(document).keydown((event) =>{
     if(event.which == 13){
       event.preventDefault();
@@ -51,11 +52,10 @@ $(document).ready(()=>{
           })
           .start();
         if(isEqualIgnoreCase($("#user").val(),"a")){
-          options[optionIndex-1]+=1;
+          options[optionIndex]=1;
           console.log("LA")
-        }else
-        if(isEqualIgnoreCase($("#user").val(),"b")){
-          options[optionIndex-1]+=2;
+        }else if(isEqualIgnoreCase($("#user").val(),"b")){
+          options[optionIndex]=2;
           console.log("LAA")
         }
       }

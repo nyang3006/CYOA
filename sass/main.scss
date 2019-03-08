@@ -1,29 +1,40 @@
 @import url('https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
 *{
   margin: 0;
   padding: 0;font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
-#body{
-  background: black; 
+$head-height: 10vh;
+#head{
   width:100vw;
-  height:100vh;
+  height:$head-height;
+  background: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  #title{
+    padding: 1%;
+  }
+  *{
+    color: rgba(163, 146, 146, 0.596);
+  }
+}
+#body{
+  background: rgb(0, 0, 0); 
+  width:100vw;
+  height:100vh - $head-height;
   display: flex;
   flex-wrap: unset;
   flex-direction: row-reverse;
   #visual{
     width: 100%;
-    height: 55%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    #title-cont{
-      padding:1%;
-      height: 5%;
-    }
     #pics{
       width:90%;
-      height:80%;
+      height:85%;
       border: 2px solid white;
     }
   }
@@ -33,10 +44,21 @@
     display: flex;
     flex-wrap: wrap;
     padding: 2%;
+    #console{
+      width:100%;
+      height:35%;
+      form{
+        
+      display: inline;
+      }
+      *{
+        font-size: 0.95em;
+      }
+    }
   }
   #output{
     width:100%;
-    height:90%;
+    height:40%;
     overflow-y: scroll;
  
   }
