@@ -20,36 +20,48 @@ $head-height: 10vh;
 }
 #body{
   background: rgb(0, 0, 0); 
-  width:100vw;
+  width:calc( 100% - 10px );
   height:100vh - $head-height;
   display: flex;
   flex-wrap: unset;
+  padding: 0 5px 0 5px;
   flex-direction: row-reverse;
   #visual{
     width: 100%;
-    height: 100%;
+    height: 95%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     #pics{
       width:90%;
-      height:85%;
+      height:99%;
       border: 2px solid white;
     }
   }
   #ui{
     width:100%;
-    height:90%;
+    height:95%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    padding: 2%;
+    #console:hover{
+      border: 2px white solid;  
+      
+    }
     #console{
       width:100%;
       height:35%;
+      padding: 5px;
+      border: 2px gray solid;  
+      #options{
+        width:100%;
+        height:calc( 100% - 15px );
+        border-top: 2px solid gray;
+      }
       form{
-        
-      display: inline;
+        display: inline;
       }
       *{
         font-size: 0.95em;
@@ -59,8 +71,9 @@ $head-height: 10vh;
   #output{
     width:100%;
     height:40%;
+    border: 2px gray solid;
+    padding: 5px;
     overflow-y: scroll;
- 
   }
   ::-webkit-scrollbar {
     width: 10px;
@@ -92,5 +105,9 @@ $head-height: 10vh;
   }
   *{
     color: white;
+  }
+  #output:hover{
+    border: 2px white solid;
+
   }
 }
