@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
-$head-height: 10vh;
+$head-height: 8vh;
 #head{
   width:100vw;
   height:$head-height;
@@ -17,7 +17,9 @@ $head-height: 10vh;
   *{
     color: rgba(163, 146, 146, 0.596);
   }
+  position: relative;
 }
+
 #body{
   background: rgb(0, 0, 0); 
   width:calc( 100% - 10px );
