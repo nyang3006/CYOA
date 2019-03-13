@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand|ZCOOL+QingKe+HuangYou");
+* {
+  padding: 0;
+  margin: 0;
+  color: #0f0e0e;
+  overflow: hidden; }
+
+@keyframes intro {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes head-min {
+  0% {
+    height: 100vh; }
+  100% {
+    height: 40vh; } }
+@keyframes head-jiggle {
+  0% {
+    transform: translate(0px, 0px); }
+  25% {
+    transform: translate(-1px, 2px); }
+  43% {
+    transform: translate(2px, -2px); }
+  65% {
+    transform: translate(-5px, 5px); }
+  25% {
+    transform: translate(2px, -3px); }
+  100% {
+    transform: translate(0px, 0px); } }
+.user {
+  background: #080808; }
+
+.story {
+  background: #64aeeb; }
+
+#head {
+  transition: 0.5s;
+  width: 100vw;
+  height: 100vh;
+  animation-name: head-min;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-duration: 3s;
+  animation-delay: 5.5s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  #head * {
+    font-family: 'ZCOOL QingKe HuangYou', cursive; }
+  #head #head_cont {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    #head #head_cont #head_text {
+      animation: head-jiggle 5s infinite ease-in-out, intro 5s 1 cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards; }
+
+#body {
+  width: 100vw;
+  height: 60vh;
+  background: #5c3838; }
+  #body * {
+    font-family: 'Quicksand', sans-serif; }
+  #body #choices_cont {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    #body #choices_cont #choices {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center; }
+      #body #choices_cont #choices li {
+        border: 3px solid rgba(0, 0, 0, 0.384);
+        border-radius: 70px;
+        padding: 10px 30px;
+        display: inline;
+        transition: 0.25s; }
+      #body #choices_cont #choices li:hover {
+        border: 3px solid rgba(48, 45, 45, 0.884);
+        transform: scale(1.1);
+        transition: 0.1s; }
+
+/*# sourceMappingURL=main.css.map */
