@@ -2,57 +2,67 @@
 *{padding:0;margin:0;color:rgb(15, 14, 14);overflow: hidden;}
 $head-height: 100vh;
 @keyframes intro{
-  0%{
-    opacity:0;
-  }
-  100%{
-    opacity:1;
-  }
+  0%{ opacity:0; }
+  100%{ opacity:1; }
 }
 @keyframes head-min{
-  0%{
-    height: 100vh;
-  }
-  100%{
-    height: 40vh;
-  }
+  0%{ height: 100vh; }
+  100%{ height: 45vh; }
 }
 @keyframes head-jiggle {
-  0% { transform: translate(0px,  0px); }
-  25%  { transform: translate(-1px, 2px); }
-  43%  { transform: translate(2px, -2px); }
-  65%  { transform: translate(-5px, 5px); }
-  25%  { transform: translate(2px, -3px); }
-  100%   { transform: translate(0px, -0px); }    
+  0%{ transform: translate(0px,  0px); }
+  25%{ transform: translate(-1px, 2px); }
+  43%{ transform: translate(2px, -2px); }
+  65%{ transform: translate(-5px, 5px); }
+  25%{ transform: translate(2px, -3px); }
+  100%{ transform: translate(0px, -0px); }    
 }
-.user{
-  background: rgb(8, 8, 8);
-}
-.story{
-  background: rgb(100, 174, 235);
-}
+
+.user{ background: rgb(69, 101, 170); }
+.story{ background: rgb(100, 174, 235); }
+
 #head{
   transition: 0.5s;
   width: 100vw;
   height: $head-height;
-  animation-name: head-min;
+  /*animation-name: head-min;
+  animation-delay: 13s;*/
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-duration: 3s;
-  animation-delay: 13s;
-  animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+  animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  transition: 0.5s;
   *{
     font-family: 'ZCOOL QingKe HuangYou', cursive;
   
   }
+  #head_background{
+    position:absolute;
+    background-image: url("../img/city_skyline.png");
+    background-repeat: no-repeat;
+    background-size: 100% 30%;
+    background-position: 0% 100%;
+    top:100vh;
+    width:100%;
+    height:100%;
+    transition: 3.25s;
+    transition-timing-function:cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    z-index:1;
+  }
   #head_cont{
+    position: absolute;
     width:100vw;
     height:100%;
+    top:0vh;
+    transition: 3.75s;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index:2;
     
     #head_text{
+      font-weight: 100;
+      font-size: 2em;
       animation: head-jiggle 5s infinite ease-in-out, intro 5s 1 cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
     }
   }
@@ -61,9 +71,10 @@ $head-height: 100vh;
 #body{
   width: 100vw;
   height: 60vh;
-  background: rgb(92, 56, 56);
+  background: rgb(0, 0, 0);
   *{
     font-family: 'Quicksand', sans-serif;
+    color: rgba(190, 169, 169, 0.815);
   }
   #choices_cont{
     width:100%;
@@ -78,14 +89,14 @@ $head-height: 100vh;
       justify-content: space-around;
       align-items: center;
       li{
-        border:3px solid rgba(0, 0, 0, 0.384);
+        border:3px solid rgba(145, 133, 133, 0.384);
         border-radius:70px;
         padding: 10px 30px;
         display: inline;
         transition: 0.25s;
       }
       li:hover{
-        border:3px solid rgba(48, 45, 45, 0.884);
+        border:3px solid rgba(218, 200, 200, 0.884);
         transform:scale(1.1);
         transition: 0.1s;
 
