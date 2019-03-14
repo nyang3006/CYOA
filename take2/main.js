@@ -28,7 +28,7 @@ let onDocReady = ()=>{
     strings: back,
     autoStart:true,
     loop:false,
-    delay: 5
+    delay: 150
   }
   const typewriter = new Typewriter(headText, typewriterConfig)
     .callFunction(JamiePullThatUp);
