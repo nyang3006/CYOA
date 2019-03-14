@@ -1,6 +1,6 @@
 //Story
 const choices = abc123;
-const back = ["Welcome.","You are playing adsa askjd hmik"];
+const back = ["Welcome."];
 //Story class
 class Story {
   constructor(chose) {
@@ -19,7 +19,6 @@ class Story {
     }else{
       this.x = this.x;
     }
-    this.i+=1;
     return this.x.msg;
   }
 
@@ -30,6 +29,7 @@ class Story {
   //Add user choice
   addChose(a){
     this.chose[this.chose.length] = a;
+    this.i+=1;
   }
 }
 //Cleaner look to build choice string

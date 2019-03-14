@@ -1,33 +1,61 @@
 let onDocReady = ()=>{
   const buttons = $(".option");
   const headText = document.getElementById('head_text');
-  
+  const headDiv = $("#head");
+  const headCont = $("#head_cont");
+
   let chose = [];
   let story1 = new Story(chose);
-  let backIndex = 0;
+  let typeNext = story1.getStory();
+
+  let callFunc = ()=>{
+    typeNext = story1.getStory()
+    headCont.css("top","-27.5vh")
+    headDiv.toggleClass("user story")
+    headDiv.css("animation-name","head-min");
+    $("#head_background").css("top","-55vh")
+    for(let i = 0;i<=buttons.length;i++){
+      $(buttons[i]).html(story1.getChoiceInfo("a"))
+    }
+  }
+
+  let JamiePullThatUp = ()=>{
+    $("#head_background").css("top","0vh")
+  }
+
   //Type background part of story
   let typewriterConfig = {
     strings: back,
     autoStart:true,
-    loop:false
+    loop:false,
+    delay: 5
   }
-  let JamiePullThatUp = ()=>{
-    $("#head_background").css("top","0vh")
-  }
-  const typewriter = new Typewriter(headText, typewriterConfig).callFunction(JamiePullThatUp);
-  let typeNext = story1.getStory();
-  let callFunc = ()=>{
-    typeNext = story1.getStory()
-    $("#head_background").css("top","-55vh")
-    $("#head_cont").css("top","-27.5vh")
-    $("#head").toggleClass("user story")
-    for(let i = 0;i<=buttons.length;i++){
-      $(buttons[i]).html(story1.getChoiceInfo("a"))
+  const typewriter = new Typewriter(headText, typewriterConfig)
+    .callFunction(JamiePullThatUp);
+
+  typewriter.typeString(typeNext)
+    .callFunction(callFunc);
+  
+  function clickedChoice(){
+    JamiePullThatUp();
+    headCont.css("top","0vh")
+    headDiv.toggleClass("user story")
+    headDiv.css("animation-name","head-max");
+
+    let clickedButton = $(this).attr('id');
+    console.log(clickedButton)
+    if(clickedButton === "choice_a"){
+      story1.addChose("a");
+    }else{
+      story1.addChose("b");
     }
-    $("#head").css({
-      animationName:"head-min"
-    });
-  }
-  typewriter.typeString(typeNext).callFunction(callFunc);
+    typeNext = story1.getStory();
+    typewriter.deleteAll()
+      .typeString(typeNext)
+      .callFunction(callFunc)
+      .start();
+
+  };
+  buttons.click(clickedChoice)
 }
 $(document).ready(onDocReady);
